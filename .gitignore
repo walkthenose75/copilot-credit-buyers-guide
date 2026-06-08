@@ -1,0 +1,4 @@
+# Only index.html is published
+*
+!index.html
+!.gitignore
