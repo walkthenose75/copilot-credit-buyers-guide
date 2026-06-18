@@ -1352,12 +1352,12 @@ function discCurve(){
   const line=d3.line().x((d)=>x('T'+d.t)).y(d=>y(d.disc)).curve(d3.curveMonotoneX);
   const area=d3.area().x(d=>x('T'+d.t)).y0(h-m.b).y1(d=>y(d.disc)).curve(d3.curveMonotoneX);
   const grad=s.append('defs').append('linearGradient').attr('id','gp3').attr('x1',0).attr('x2',0).attr('y1',0).attr('y2',1);
-  grad.append('stop').attr('offset','0%').attr('stop-color',css('--violet')).attr('stop-opacity',.4);
-  grad.append('stop').attr('offset','100%').attr('stop-color',css('--violet')).attr('stop-opacity',0);
+  grad.append('stop').attr('offset','0%').attr('stop-color','#34d399').attr('stop-opacity',.4);
+  grad.append('stop').attr('offset','100%').attr('stop-color','#34d399').attr('stop-opacity',0);
   s.append('path').datum(P3).attr('d',area).attr('fill','url(#gp3)');
-  const p=s.append('path').datum(P3).attr('d',line).attr('fill','none').attr('stroke',css('--violet')).attr('stroke-width',3);
+  const p=s.append('path').datum(P3).attr('d',line).attr('fill','none').attr('stroke','#34d399').attr('stroke-width',3);
   const L=p.node().getTotalLength();p.attr('stroke-dasharray',L).attr('stroke-dashoffset',L).transition().duration(1400).attr('stroke-dashoffset',0);
-  P3.forEach(d=>{const c=s.append('circle').attr('cx',x('T'+d.t)).attr('cy',y(d.disc)).attr('r',0).attr('fill',css('--violet'));
+  P3.forEach(d=>{const c=s.append('circle').attr('cx',x('T'+d.t)).attr('cy',y(d.disc)).attr('r',0).attr('fill','#34d399');
     c.transition().delay(d.t*90).duration(400).attr('r',5);});
 }
 
