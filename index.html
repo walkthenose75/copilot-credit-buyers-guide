@@ -102,6 +102,8 @@ td.num,th.num{text-align:center;font-variant-numeric:tabular-nums}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .dot{width:10px;height:10px;border-radius:3px}
 .src{font-size:10.5px;color:var(--muted);margin-top:7px;font-style:italic}
+.rsub{font-size:10px;color:var(--muted);font-weight:400;white-space:nowrap}
+sup.fn{font-size:9px;font-weight:700;color:var(--blue);margin-left:1px}
 .bigquote{font-size:14px;border-left:3px solid var(--amber);padding:6px 14px;color:var(--muted)}
 /* tooltip */
 #tip{position:fixed;z-index:60;max-width:280px;background:var(--tipbg);color:var(--tiptext);
@@ -260,7 +262,7 @@ a.ref .url .ext{flex:none}
       <button class="navbtn" role="tab" id="tab-options" aria-controls="options" aria-selected="false" tabindex="-1" data-tab="options"><span class="ic" aria-hidden="true">&#9636;</span>Licensing Options</button>
       <button class="navbtn" role="tab" id="tab-rates" aria-controls="rates" aria-selected="false" tabindex="-1" data-tab="rates"><span class="ic" aria-hidden="true">&#9889;</span>Credit Rates</button>
       <button class="navbtn" role="tab" id="tab-p3" aria-controls="p3" aria-selected="false" tabindex="-1" data-tab="p3"><span class="ic" aria-hidden="true">&#9650;</span>P3 Plan &amp; Tiers</button>
-      <button class="navbtn" role="tab" id="tab-transition" aria-controls="transition" aria-selected="false" tabindex="-1" data-tab="transition"><span class="ic" aria-hidden="true">&#8634;</span>Transition Guide</button>
+      <button class="navbtn" role="tab" id="tab-transition" aria-controls="transition" aria-selected="false" tabindex="-1" data-tab="transition"><span class="ic" aria-hidden="true">&#8634;</span>AI Builder Transition</button>
       <div class="navlbl" role="presentation">Apply</div>
       <button class="navbtn" role="tab" id="tab-budget" aria-controls="budget" aria-selected="false" tabindex="-1" data-tab="budget"><span class="ic" aria-hidden="true">&#9881;</span>Budget a New Agent</button>
       <button class="navbtn" role="tab" id="tab-paflows" aria-controls="paflows" aria-selected="false" tabindex="-1" data-tab="paflows"><span class="ic" aria-hidden="true">&#9107;</span>Power Automate &amp; Flows</button>
@@ -413,19 +415,20 @@ a.ref .url .ext{flex:none}
       <div class="card" style="overflow-x:auto">
         <p class="ctitle">Full rate card</p>
         <table>
-          <thead><tr><th>Feature</th><th class="num">Rate (credits)</th><th class="num">M365 Copilot user</th></tr></thead>
+          <thead><tr><th>Feature</th><th class="num">Rate (credits)</th><th class="num">M365 Copilot user<sup class="fn">1</sup></th></tr></thead>
           <tbody>
             <tr data-tip="r1|Static, manually authored responses. Cheapest event at 1 credit."><td>Classic answer</td><td class="num">1</td><td class="num">No charge</td></tr>
             <tr data-tip="r2|AI-generated responses from connected knowledge. 2 credits each unless built in Agent Builder without tenant graph grounding."><td>Generative answer</td><td class="num">2</td><td class="num">No charge</td></tr>
             <tr data-tip="r3|Triggers, deep reasoning, topic transitions on the activity map. Computer-Using Agents also bill here."><td>Agent action</td><td class="num">5</td><td class="num">No charge</td></tr>
             <tr data-tip="r4|RAG over your tenant-wide Microsoft Graph for higher-quality grounding. Optional per agent. Most expensive per-message event."><td>Tenant graph grounding (per msg)</td><td class="num">10</td><td class="num">No charge</td></tr>
             <tr data-tip="r5|Predefined flow action sequences. Billed per 100 actions; enforcement blocks new runs when capacity is exhausted."><td>Agent flow actions (per 100)</td><td class="num">13</td><td class="num">No charge</td></tr>
-            <tr data-tip="r6|Prompt tools on a basic model. 0.1 credit per 1K tokens, per 10 responses."><td>AI tools, basic (per 10 resp)</td><td class="num">0.1 / 1K tok</td><td class="num">1</td></tr>
-            <tr data-tip="r7|Prompt tools on a standard model. 1.5 credit per 1K tokens, per 10 responses."><td>AI tools, standard (per 10 resp)</td><td class="num">1.5 / 1K tok</td><td class="num">15</td></tr>
-            <tr data-tip="r8|Prompt tools on a premium model, also used for reasoning models. 10 credits per 1K tokens."><td>AI tools, premium (per 10 resp)</td><td class="num">10 / 1K tok</td><td class="num">100</td></tr>
+            <tr data-tip="r6|Prompt tools on a basic model. Billed at 1 credit per 10 responses (0.1 credit per 1K tokens). No charge for M365 Copilot licensed users."><td>AI tools, basic (per 10 resp)</td><td class="num">1 <span class="rsub">(0.1 / 1K tok)</span></td><td class="num">No charge</td></tr>
+            <tr data-tip="r7|Prompt tools on a standard model. Billed at 15 credits per 10 responses (1.5 credit per 1K tokens). No charge for M365 Copilot licensed users."><td>AI tools, standard (per 10 resp)</td><td class="num">15 <span class="rsub">(1.5 / 1K tok)</span></td><td class="num">No charge</td></tr>
+            <tr data-tip="r8|Prompt tools on a premium model, also used for reasoning models. Billed at 100 credits per 10 responses (10 credits per 1K tokens). No charge for M365 Copilot licensed users."><td>AI tools, premium (per 10 resp)</td><td class="num">100 <span class="rsub">(10 / 1K tok)</span></td><td class="num">No charge</td></tr>
             <tr data-tip="r9|Intelligent document and image processing, billed per page."><td>Content processing (per page)</td><td class="num">8</td><td class="num">No charge</td></tr>
           </tbody>
         </table>
+        <p class="src"><sup>1</sup> &ldquo;No charge&rdquo; covers employee-facing (B2E) usage where the agent runs under the authenticated Microsoft 365 Copilot&ndash;licensed user&rsquo;s identity, subject to fair-use limits Microsoft may update. Source: <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management" target="_blank" rel="noopener">Microsoft Learn, Billing rates</a>.</p>
       </div>
     </div>
 
@@ -440,7 +443,7 @@ a.ref .url .ext{flex:none}
             <tr data-tip="v3|Real-time voice. Highest per-minute rate."><td>Premium, real-time</td><td class="num">75</td></tr>
           </tbody>
         </table>
-        <p class="note"><b>Reasoning models bill twice:</b> total cost = feature rate + premium AI tools (100 credits per 10 tokens) for the reasoning token usage.</p>
+        <p class="note"><b>Reasoning models bill twice:</b> total cost = feature rate + premium AI tools (10 credits per 1,000 tokens, i.e. the 100-credit-per-10-responses premium tier) for the reasoning token usage.</p>
       </div>
       <div class="card">
         <p class="ctitle">Worked billing examples <i class="ic-i" data-tip="examples|Microsoft-published examples. Each shows how event counts times volume produce a daily credit figure.">i</i></p>
@@ -522,114 +525,12 @@ a.ref .url .ext{flex:none}
     </div>
   </section>
 
-  <!-- ============ TRANSITION GUIDE ============ -->
+  <!-- ============ AI BUILDER TRANSITION ============ -->
   <section class="tab" id="transition" role="tabpanel" aria-labelledby="tab-transition" tabindex="0">
     <div class="head">
-      <span class="eyebrow"><span class="live"></span>Transition guide</span>
-      <h2>Transition to Copilot Credits from PVA session packs &amp; AI Builder</h2>
-      <p>Microsoft is unifying all agent and AI billing under <b>Copilot Credits</b>. Whether you are migrating from Power Virtual Agents session packs or AI Builder credits, this guide covers the licensing model change, billing plan setup, and how to ensure zero disruption to existing workloads during the transition.</p>
-    </div>
-
-    <!-- ── PVA SESSION PACK MIGRATION ── -->
-    <h3 class="sect"><span class="bar"></span>PVA session packs &rarr; Copilot Credits</h3>
-
-    <div class="grid g3">
-      <div class="card kpi" data-tip="pva-old|Legacy PVA licensing charged per session (one conversation of up to 100 turns within 60 minutes). Session packs were purchased as add-on capacity.">
-        <div class="lab">Old model: sessions <i class="ic-i">i</i></div>
-        <div class="val" style="color:var(--muted)">1 session</div>
-        <div class="delta">= 1 conversation (up to 100 turns / 60 min)</div>
-      </div>
-      <div class="card kpi" data-tip="pva-new|The new Copilot Credits model bills per message and per feature used. Credits are pooled at the tenant level across all agents and environments.">
-        <div class="lab">New model: credits <i class="ic-i">i</i></div>
-        <div class="val" style="color:var(--blue)">Per message</div>
-        <div class="delta">1&ndash;10 CC per feature per message</div>
-      </div>
-      <div class="card kpi" data-tip="pva-convert|There is no automatic conversion of PVA session entitlements to Copilot Credits. You must purchase Copilot Credits (packs, PayGo, or P3) separately.|Source: Copilot Studio Licensing Guide">
-        <div class="lab">Auto-conversion? <i class="ic-i">i</i></div>
-        <div class="val" style="color:var(--rose)">None</div>
-        <div class="delta">No sessions &rarr; CC conversion</div>
-      </div>
-    </div>
-
-    <div class="grid g2">
-      <div class="card" data-tip="pva-compare|Side-by-side comparison of the legacy PVA session-based model versus the current Copilot Credits model. Key differences include billing granularity, pooling, and overage behavior.|Source: Copilot Studio Licensing Guide">
-        <p class="ctitle">Licensing model comparison</p>
-        <table>
-          <thead><tr><th>Dimension</th><th>PVA session packs (legacy)</th><th>Copilot Credits (current)</th></tr></thead>
-          <tbody>
-            <tr><td><b>Billing unit</b></td><td>Session (1 conversation)</td><td>Copilot Credit (per message/feature)</td></tr>
-            <tr><td><b>Granularity</b></td><td>Flat: 1 session regardless of complexity</td><td>Variable: 1 CC (classic) to 10 CC (graph grounding) per message</td></tr>
-            <tr><td><b>Capacity scope</b></td><td>Tenant-level session pool</td><td>Tenant-level credit pool, allocatable per environment</td></tr>
-            <tr><td><b>Overage behavior</b></td><td>Additional sessions blocked</td><td>Grace to 125%, then agents disabled; or PayGo overflow to Azure</td></tr>
-            <tr><td><b>Purchase options</b></td><td>Session pack add-ons via M365 Admin Center</td><td>Credit packs, Pay-as-you-go, or P3 Pre-Purchase Plan</td></tr>
-            <tr><td><b>AI capabilities</b></td><td>Classic topics only</td><td>Classic + generative answers, agent actions, flows, AI tools</td></tr>
-            <tr><td><b>Monitoring</b></td><td>Session analytics in PVA portal</td><td>PPAC: daily consumption, per-agent limits, environment allocation</td></tr>
-          </tbody>
-        </table>
-        <p class="src">Source: <a class="ilink" href="https://go.microsoft.com/fwlink/?linkid=2320995" target="_blank" rel="noopener">Copilot Studio Licensing Guide (PDF)</a></p>
-      </div>
-      <div class="card" data-tip="pva-steps|Recommended migration sequence to move from PVA session packs to the Copilot Credits model with minimal disruption.">
-        <p class="ctitle">PVA &rarr; Copilot Credits migration steps</p>
-        <div class="flow" style="flex-direction:column">
-          <div class="step">
-            <div class="n">1</div><h4>Inventory existing PVA bots</h4>
-            <p>Document all classic bots, channels, integrations, Power Automate flows, and authentication settings.</p></div>
-          <div class="step">
-            <div class="n">2</div><h4>Estimate credit consumption</h4>
-            <p>Use the <a class="ilink" href="https://microsoft.github.io/copilot-studio-estimator/" target="_blank" rel="noopener">Copilot Studio agent usage estimator</a> to map session volumes to Copilot Credit demand based on feature mix.</p></div>
-          <div class="step">
-            <div class="n">3</div><h4>Purchase Copilot Credits</h4>
-            <p>Select packs, PayGo, or P3 (see Licensing Options and How to Purchase P3 tabs). Ensure credits are active before decommissioning session packs.</p></div>
-          <div class="step">
-            <div class="n">4</div><h4>Set up PPAC billing plan</h4>
-            <p>Link your Azure subscription to environments via a billing plan in PPAC (see Configuring the P3 Plan tab for step-by-step flow).</p></div>
-          <div class="step">
-            <div class="n">5</div><h4>Clone &amp; modernize bots</h4>
-            <p>Use Copilot Studio's <b>Copy this chatbot</b> feature to clone classic bots to unified authoring. Reconfigure auth, channels, and test thoroughly.</p></div>
-          <div class="step">
-            <div class="n">6</div><h4>Monitor &amp; decommission</h4>
-            <p>Run old and new agents in parallel. Once validated, disable legacy PVA bots and let session pack entitlements expire.</p></div>
-        </div>
-        <p class="src">Migration guidance: <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/unified-authoring-conversion" target="_blank" rel="noopener">Upgrade to Copilot Studio unified authoring (Microsoft Learn)</a></p>
-      </div>
-    </div>
-
-    <!-- ── ENSURING NO DISRUPTION ── -->
-    <h3 class="sect"><span class="bar"></span>Ensuring zero disruption during transition</h3>
-
-    <div class="grid g2">
-      <div class="card" data-tip="cont-link|Understanding how P3 prepaid credits flow through PPAC billing plans to environments is critical for a smooth cutover. The billing plan bridges Azure reservations to Power Platform environments.|Source: Microsoft Learn, Set up a pay-as-you-go plan">
-        <p class="ctitle">How P3 credits link to PPAC billing plans</p>
-        <div class="flow" style="flex-direction:column">
-          <div class="step">
-            <div class="n">1</div><h4>P3 purchased in Azure Portal</h4>
-            <p>One-time upfront reservation tied to an Azure subscription. Credits appear as reserved capacity.</p></div>
-          <div class="step">
-            <div class="n">2</div><h4>Billing plan created in PPAC</h4>
-            <p>In PPAC &rarr; Licensing &rarr; Pay-as-you-go plans, create a billing plan linked to the <b>same Azure subscription</b> used for P3.</p></div>
-          <div class="step">
-            <div class="n">3</div><h4>Environments assigned to billing plan</h4>
-            <p>Select environments to associate with the plan. Each environment draws from the tenant-wide prepaid pool; optionally allocate specific credit amounts per environment.</p></div>
-          <div class="step">
-            <div class="n">4</div><h4>Credits flow automatically</h4>
-            <p>Agents in linked environments consume from prepaid P3 capacity first. If exhausted, PayGo meters on the Azure subscription absorb any overage&mdash;no disruption.</p></div>
-        </div>
-        <p class="src">Source: <a class="ilink" href="https://learn.microsoft.com/en-us/power-platform/admin/pay-as-you-go-set-up" target="_blank" rel="noopener">Set up a pay-as-you-go plan (Microsoft Learn)</a></p>
-      </div>
-      <div class="card" data-tip="cont-check|Pre-transition readiness checklist to ensure workloads continue without disruption during and after the migration from session packs or AI Builder credits.">
-        <p class="ctitle">Transition readiness checklist</p>
-        <ul style="margin:0;padding-left:18px;font-size:12.8px;line-height:2.1;color:var(--text)">
-          <li><b>Purchase credits first:</b> ensure Copilot Credits (packs, PayGo, or P3) are active <em>before</em> legacy entitlements expire</li>
-          <li><b>Enable PayGo as a safety net:</b> link a pay-as-you-go meter so agents overflow to Azure billing instead of being disabled</li>
-          <li><b>Allocate capacity per environment:</b> in PPAC, set per-environment allocations to protect production from dev/test overspend</li>
-          <li><b>Set per-agent limits:</b> use PPAC &rarr; Manage Agents to cap individual agent consumption and receive threshold alerts</li>
-          <li><b>Run parallel:</b> keep legacy PVA bots running alongside new Copilot Studio agents until fully validated</li>
-          <li><b>Test in isolation:</b> Copilot Studio test chat and designer runs are free&mdash;use them before publishing</li>
-          <li><b>Monitor daily:</b> check PPAC &rarr; Licensing &rarr; Copilot Studio &rarr; Summary tab daily during cutover</li>
-          <li><b>Notify stakeholders:</b> communicate transition dates to finance, IT, and business owners with rollback plan</li>
-        </ul>
-        <p class="note" style="margin-top:10px"><b>Key guarantee:</b> existing PVA session entitlements remain active for the duration of your current contract. You can run both models simultaneously during transition&mdash;there is no forced cutover date for session-based licensing.</p>
-      </div>
+      <span class="eyebrow"><span class="live"></span>AI Builder transition</span>
+      <h2>Transition to Copilot Credits from AI Builder</h2>
+      <p>Microsoft is unifying AI Builder billing under <b>Copilot Credits</b>. Seeded AI Builder credits in Power Apps Premium, Power Automate Premium, and Dynamics 365 licenses are being retired, and AI Builder add-on sales have ended. This guide covers the licensing model change, the dual-mode timeline, billing plan setup, and how to ensure zero disruption to existing workloads during the transition.</p>
     </div>
 
     <!-- ── AI BUILDER TRANSITION ── -->
@@ -705,13 +606,47 @@ a.ref .url .ext{flex:none}
       </div>
     </div>
 
+    <!-- ── ENSURING NO DISRUPTION ── -->
+    <h3 class="sect"><span class="bar"></span>Ensuring zero disruption during transition</h3>
+
+    <div class="grid g2">
+      <div class="card" data-tip="cont-link|Understanding how P3 prepaid credits flow through PPAC billing plans to environments is critical for a smooth cutover. The billing plan bridges Azure reservations to Power Platform environments.|Source: Microsoft Learn, Set up a pay-as-you-go plan">
+        <p class="ctitle">How P3 credits link to PPAC billing plans</p>
+        <div class="flow" style="flex-direction:column">
+          <div class="step">
+            <div class="n">1</div><h4>P3 purchased in Azure Portal</h4>
+            <p>One-time upfront reservation tied to an Azure subscription. Credits appear as reserved capacity.</p></div>
+          <div class="step">
+            <div class="n">2</div><h4>Billing plan created in PPAC</h4>
+            <p>In PPAC &rarr; Licensing &rarr; Pay-as-you-go plans, create a billing plan linked to the <b>same Azure subscription</b> used for P3.</p></div>
+          <div class="step">
+            <div class="n">3</div><h4>Environments assigned to billing plan</h4>
+            <p>Select environments to associate with the plan. Each environment draws from the tenant-wide prepaid pool; optionally allocate specific credit amounts per environment.</p></div>
+          <div class="step">
+            <div class="n">4</div><h4>Credits flow automatically</h4>
+            <p>Agents in linked environments consume from prepaid P3 capacity first. If exhausted, PayGo meters on the Azure subscription absorb any overage&mdash;no disruption.</p></div>
+        </div>
+        <p class="src">Source: <a class="ilink" href="https://learn.microsoft.com/en-us/power-platform/admin/pay-as-you-go-set-up" target="_blank" rel="noopener">Set up a pay-as-you-go plan (Microsoft Learn)</a></p>
+      </div>
+      <div class="card" data-tip="cont-check|Pre-transition readiness checklist to ensure workloads continue without disruption during and after the migration from AI Builder credits to Copilot Credits.">
+        <p class="ctitle">Transition readiness checklist</p>
+        <ul style="margin:0;padding-left:18px;font-size:12.8px;line-height:2.1;color:var(--text)">
+          <li><b>Purchase credits first:</b> ensure Copilot Credits (packs, PayGo, or P3) are active <em>before</em> legacy entitlements expire</li>
+          <li><b>Enable PayGo as a safety net:</b> link a pay-as-you-go meter so agents overflow to Azure billing instead of being disabled</li>
+          <li><b>Allocate capacity per environment:</b> in PPAC, set per-environment allocations to protect production from dev/test overspend</li>
+          <li><b>Set per-agent limits:</b> use PPAC &rarr; Manage Agents to cap individual agent consumption and receive threshold alerts</li>
+          <li><b>Run parallel:</b> keep AI Builder credits and Copilot Credits both active during dual-mode until workloads are fully validated</li>
+          <li><b>Test in isolation:</b> Copilot Studio test chat and designer runs are free&mdash;use them before publishing</li>
+          <li><b>Monitor daily:</b> check PPAC &rarr; Licensing &rarr; Copilot Studio &rarr; Summary tab daily during cutover</li>
+          <li><b>Notify stakeholders:</b> communicate transition dates to finance, IT, and business owners with rollback plan</li>
+        </ul>
+        <p class="note" style="margin-top:10px"><b>Key guarantee:</b> Microsoft honors existing AI Builder entitlements for the duration of your current contract, and seeded credits continue through the dual-mode period (to Nov 1, 2026). You can run both credit types simultaneously during transition&mdash;there is no mid-contract forced cutover.</p>
+      </div>
+    </div>
+
     <div class="card" data-tip="tr-faq|Common questions about the transition, sourced from Microsoft Learn FAQ.">
       <p class="ctitle">Frequently asked questions</p>
       <div class="acc">
-        <details><summary class="ahd">What happens to my PVA session pack entitlements?</summary>
-        <div class="abody"><p>Existing PVA session entitlements remain active for the remainder of your current contract term. There is no forced cutover date. However, new PVA session pack purchases are no longer available&mdash;you must transition to Copilot Credits for new or expanded capacity.</p></div></details>
-        <details><summary class="ahd">How do I estimate Copilot Credits from my PVA session volumes?</summary>
-        <div class="abody"><p>Unlike sessions (flat per conversation), Copilot Credits vary by feature: 1 CC for classic answers, 2 CC for generative answers, 5 CC for agent actions, etc. Use the <a class="ilink" href="https://microsoft.github.io/copilot-studio-estimator/" target="_blank" rel="noopener">Copilot Studio agent usage estimator</a> with your average messages-per-session and feature mix to project credit needs.</p></div></details>
         <details><summary class="ahd">How do prepaid P3 credits connect to my PPAC billing plan?</summary>
         <div class="abody"><p>P3 is purchased as an Azure reservation tied to a subscription. In PPAC, create a billing plan linked to that same Azure subscription, then assign environments. Agents in those environments automatically draw from P3 prepaid capacity first. Any overage bills to the Azure subscription via pay-as-you-go meters.</p></div></details>
         <details><summary class="ahd">Will my existing contracts be honored?</summary>
