@@ -1069,6 +1069,24 @@ a.ref .url .ext{flex:none}
       <p class="src">Steps 6 and 7 include the sub-items shown beneath them.</p>
     </div>
 
+    <h3 class="sect"><span class="bar"></span>Allocate credits to your environments</h3>
+    <div class="card">
+      <p class="ctitle">Assign Copilot credits per environment in PPAC <i class="ic-i" data-tip="alloc-tip|After the subscription is linked, capacity management lets you allocate prepurchased Copilot credit capacity across environments based on anticipated usage. Reallocate any time.">i</i></p>
+      <p style="font-size:12.6px;color:var(--muted);margin:0 0 6px">Once the Azure subscription is linked, use capacity management in the <a class="ilink" href="https://admin.powerplatform.microsoft.com/" target="_blank" rel="noopener">Power Platform admin center</a> (PPAC) to allocate Copilot credits to specific environments based on expected usage. Reference: <a class="ilink" href="https://learn.microsoft.com/en-us/power-platform/admin/manage-copilot-studio-messages-capacity" target="_blank" rel="noopener">Manage Copilot Studio credits and capacity - Power Platform | Microsoft Learn</a>.</p>
+      <div class="flowmap">
+        <div class="fcol"><div class="fstep"><span class="fnum">1</span><p>In the navigation pane, select <b>Licensing</b></p></div></div>
+        <div class="fcol"><div class="fstep"><span class="fnum">2</span><p>In the <b>Licensing</b> pane, under <b>Products</b>, select <b>Copilot Studio</b></p></div></div>
+        <div class="fcol"><div class="fstep"><span class="fnum">3</span><p>Select the <b>Summary</b> tab, then select <b>Manage Capacity</b> from the <b>Prepaid capacity</b> card</p></div></div>
+        <div class="fcol">
+          <div class="fstep"><span class="fnum">4</span><p>In the allocation panel, <b>select an environment</b> and enter the number of credits in the <b>Copilot credits</b> box</p></div>
+          <div class="sub scope">Repeat per environment. Unconsumed credits can be reallocated between environments at any time.</div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:6px"><b>Overage management:</b> when an environment's allocation is consumed, choose to draw from the available tenant capacity or route overage to the linked pay-as-you-go plan.</p>
+      <p style="font-size:12.4px;color:var(--muted);margin:8px 0 0">For finer control, set per-agent monthly consumption limits with <b>Notifications</b> and <b>Hard stop</b> guardrails via <b>Manage Agents</b> &mdash; see the <b>Monitor &amp; Control</b> tab.</p>
+      <p class="src">Source: <a class="ilink" href="https://learn.microsoft.com/en-us/power-platform/admin/manage-copilot-studio-messages-capacity" target="_blank" rel="noopener">Manage Copilot Studio credits and capacity (Microsoft Learn)</a>.</p>
+    </div>
+
     <h3 class="sect"><span class="bar"></span>Size your commitment</h3>
     <div class="card">
       <p class="ctitle">Interactive tier configurator <i class="ic-i" data-tip="cfg-tip|Drag the slider to model any of the 9 published P3 tiers. Every value updates live from the source tier table; savings and effective rate are derived.">i</i></p>
