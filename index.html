@@ -263,6 +263,7 @@ a.ref .url .ext{flex:none}
       <button class="navbtn" role="tab" id="tab-rates" aria-controls="rates" aria-selected="false" tabindex="-1" data-tab="rates"><span class="ic" aria-hidden="true">&#9889;</span>Credit Rates</button>
       <button class="navbtn" role="tab" id="tab-p3" aria-controls="p3" aria-selected="false" tabindex="-1" data-tab="p3"><span class="ic" aria-hidden="true">&#9650;</span>P3 Plan &amp; Tiers</button>
       <button class="navbtn" role="tab" id="tab-transition" aria-controls="transition" aria-selected="false" tabindex="-1" data-tab="transition"><span class="ic" aria-hidden="true">&#8634;</span>AI Builder Transition</button>
+      <button class="navbtn" role="tab" id="tab-usage" aria-controls="usage" aria-selected="false" tabindex="-1" data-tab="usage"><span class="ic" aria-hidden="true">&#9681;</span>Usage-Based Billing</button>
       <div class="navlbl" role="presentation">Apply</div>
       <button class="navbtn" role="tab" id="tab-budget" aria-controls="budget" aria-selected="false" tabindex="-1" data-tab="budget"><span class="ic" aria-hidden="true">&#9881;</span>Budget a New Agent</button>
       <button class="navbtn" role="tab" id="tab-paflows" aria-controls="paflows" aria-selected="false" tabindex="-1" data-tab="paflows"><span class="ic" aria-hidden="true">&#9107;</span>Power Automate &amp; Flows</button>
@@ -372,6 +373,7 @@ a.ref .url .ext{flex:none}
         </tbody>
       </table>
       <p class="src">All pricing USD, subject to change. Source: <a class="ilink" href="https://go.microsoft.com/fwlink/?linkid=2320995" target="_blank" rel="noopener">Microsoft Copilot Studio Licensing Guide (PDF)</a>.</p>
+      <p class="note" style="margin-top:13px"><b>Newer agentic experiences</b> &mdash; Copilot Cowork and AI teammates &mdash; add usage-based billing on top of a base subscription. See the <a class="ilink" href="#" data-gototab="usage">Usage-Based Billing</a> page for how they and connectors are costed.</p>
     </div>
 
     <h3 class="sect"><span class="bar"></span>What Microsoft 365 Copilot zero-rates</h3>
@@ -692,6 +694,109 @@ a.ref .url .ext{flex:none}
     </div>
   </section>
 
+  <!-- ============ USAGE-BASED BILLING ============ -->
+  <section class="tab" id="usage" role="tabpanel" aria-labelledby="tab-usage" tabindex="0">
+    <div class="head">
+      <span class="eyebrow"><span class="live"></span>Usage-based billing</span>
+      <h2>Agentic experiences, connectors, and what they cost</h2>
+      <p>Newer agentic experiences &mdash; Microsoft 365 Copilot Cowork and agent &ldquo;AI teammates&rdquo; &mdash; bill on a usage basis in Copilot Credits, layered on top of a base Copilot subscription. Connecting agents to premium and external systems adds its own cost considerations. This page covers both.</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card kpi" data-tip="ub-layers|Usage-based experiences require a base Copilot subscription (the per-user seat) plus metered Copilot Credit consumption for the agentic work itself.">
+        <div class="lab">Cost model <i class="ic-i">i</i></div>
+        <div class="val breathe" style="color:var(--blue)">2 layers</div>
+        <div class="delta">base subscription + usage in credits</div>
+      </div>
+      <div class="card kpi" data-tip="ub-activities|Activities such as model responses, tool and skill calls, image generation, and browser tasks all count toward your organization's Copilot Credit consumption.">
+        <div class="lab">What consumes credits <i class="ic-i">i</i></div>
+        <div class="val" style="color:var(--violet)">4 types</div>
+        <div class="delta">responses, tool/skill calls, images, browser</div>
+      </div>
+      <div class="card kpi" data-tip="ub-frontier|Tenants in the Copilot Cowork early-access (Frontier) program must configure usage-based billing in the Microsoft 365 admin center by June 30, 2026, or agentic experiences are gated until billing is set up.">
+        <div class="lab">Frontier setup deadline <i class="ic-i">i</i></div>
+        <div class="val" style="color:var(--rose)">Jun 30 2026</div>
+        <div class="delta">pilot tenants: set up billing or gate access</div>
+      </div>
+    </div>
+
+    <h3 class="sect"><span class="bar"></span>Cowork &amp; AI teammate billing</h3>
+    <div class="grid g2">
+      <div class="card">
+        <p class="ctitle">How agentic experiences are billed <i class="ic-i" data-tip="ub-model|Cowork and agent/AI teammate experiences use a usage-based model on top of a base Copilot subscription. You pay the per-user subscription and metered Copilot Credits for the agentic work.">i</i></p>
+        <ul style="margin:0;padding-left:18px;font-size:12.8px;line-height:2;color:var(--text)">
+          <li><b>Base subscription still required</b> &mdash; the per-user Copilot seat remains the entry point.</li>
+          <li><b>Usage billed in Copilot Credits</b> &mdash; Cowork and AI teammate agents meter consumption on top of the seat.</li>
+          <li><b>AI teammate billing is usage-based</b> &mdash; agent activity is metered like other usage-based experiences.</li>
+          <li><b>Credit-consuming activities</b> &mdash; model responses, tool and skill calls, image generation, and browser tasks.</li>
+          <li><b>Common currency</b> &mdash; the same Copilot Credits used across Copilot Studio and other eligible services.</li>
+        </ul>
+        <p class="src">Sources: <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance" target="_blank" rel="noopener">Manage Copilot Cowork (Microsoft Learn)</a> &middot; <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-overview-copilot-credits" target="_blank" rel="noopener">Usage-based billing overview</a></p>
+      </div>
+      <div class="card">
+        <p class="ctitle">Enable &amp; govern in the Microsoft 365 admin center <i class="ic-i" data-tip="ub-enable|Admins enable usage-based billing under Copilot > Cost Management, then activate a default spending policy and choose a billing method.">i</i></p>
+        <div class="flow" style="flex-direction:column">
+          <div class="step" data-tip="ube1|A Global administrator or Billing administrator opens the Cost Management node under Copilot to unlock usage-based experiences (currently Cowork and Work IQ API).">
+            <div class="n">A</div><h4>Copilot &rarr; Cost Management</h4>
+            <p>Global or Billing admin selects <b>Get Started</b> to unlock usage-based experiences (Cowork, Work IQ API).</p></div>
+          <div class="step" data-tip="ube2|Activate the default spending policy and select how the organization is billed: prepaid credits (P3), pay-as-you-go, or existing capacity.">
+            <div class="n">B</div><h4>Activate a spending policy</h4>
+            <p>Pick a billing method: prepaid P3, pay-as-you-go, or existing capacity.</p></div>
+          <div class="step" data-tip="ube3|Set monthly and per-user spending limits and define alert thresholds so a single user can't drain the organization's credits.">
+            <div class="n">C</div><h4>Set limits &amp; alerts</h4>
+            <p>Monthly + per-user caps and alert thresholds prevent runaway spend.</p></div>
+        </div>
+        <p class="src">Source: <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits" target="_blank" rel="noopener">Managing AI experiences enabled by usage-based billing (Microsoft Learn)</a></p>
+      </div>
+    </div>
+
+    <h3 class="sect"><span class="bar"></span>Connector &amp; external-system costs</h3>
+    <div class="grid g3">
+      <div class="card kpi" data-tip="conn-action|Agent actions that call connectors &mdash; including premium and non-Microsoft (third-party) connectors &mdash; are metered in Copilot Credits at the agent-action rate of 5 credits per action.">
+        <div class="lab">Connector agent action <i class="ic-i">i</i></div>
+        <div class="val" style="color:var(--blue)">5</div>
+        <div class="delta">credits per action (premium &amp; third-party)</div>
+      </div>
+      <div class="card kpi" data-tip="conn-ext|External systems can carry their own licensing, subscription, or API costs that the platform bills directly &mdash; separate from and in addition to Copilot Credits.">
+        <div class="lab">External platform cost <i class="ic-i">i</i></div>
+        <div class="val" style="color:var(--amber)">Separate</div>
+        <div class="delta">billed by the platform, not in credits</div>
+      </div>
+      <div class="card kpi" data-tip="conn-m365|Microsoft 365 Copilot (Graph) connectors add no extra charge for full M365 Copilot licensed users. Grounding shared tenant data through Copilot Chat is usage-based, metered in Copilot Credits.">
+        <div class="lab">M365 Copilot connectors <i class="ic-i">i</i></div>
+        <div class="val" style="color:var(--emerald)">No charge<sup class="fn">*</sup></div>
+        <div class="delta">*under M365 Copilot license</div>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card">
+        <p class="ctitle">Where connector cost comes from <i class="ic-i" data-tip="conn-detail|Connector calls inside an agent action consume Copilot Credits at the agent-action rate. The external system may bill its own platform costs on top.">i</i></p>
+        <ul style="margin:0;padding-left:18px;font-size:12.8px;line-height:2;color:var(--text)">
+          <li><b>In Copilot Studio</b> &mdash; a connector call inside an agent action is metered at <b>5 credits per agent action</b>, the same rate shown on the Credit Rates page.</li>
+          <li><b>External platform costs</b> &mdash; e.g., <b>ServiceNow</b> can charge its own licensing/API costs for the integrated system; these vary by vendor and are billed outside Copilot Credits.</li>
+          <li><b>M365 Copilot (Graph) connectors</b> &mdash; no extra charge for full M365 Copilot licensed users; <b>Copilot Chat grounding</b> of shared tenant data (SharePoint, Copilot connectors) is usage-based in Copilot Credits.</li>
+        </ul>
+        <p class="src">Sources: <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management" target="_blank" rel="noopener">Billing rates (Microsoft Learn)</a> &middot; <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/cost-considerations" target="_blank" rel="noopener">Extensibility cost considerations</a></p>
+      </div>
+      <div class="card">
+        <p class="ctitle">Example: a ServiceNow integration <i class="ic-i" data-tip="conn-snow|ServiceNow is a real Microsoft 365 Copilot connector. The agent action that calls it costs Copilot Credits; ServiceNow's own platform licensing is billed by ServiceNow.">i</i></p>
+        <table>
+          <thead><tr><th>Cost component</th><th>Who bills it</th><th class="num">Copilot Credits?</th></tr></thead>
+          <tbody>
+            <tr data-tip="snow1|Each agent action that calls the connector is metered at the agent-action rate."><td>Agent action calling the connector</td><td>Microsoft (Copilot)</td><td class="num">5 / action</td></tr>
+            <tr data-tip="snow2|Generative answers grounded on the returned data bill at the generative-answer rate."><td>Generative answer on returned data</td><td>Microsoft (Copilot)</td><td class="num">2 / answer</td></tr>
+            <tr data-tip="snow3|ServiceNow's own subscription, instance, and API costs are billed by ServiceNow and vary by agreement."><td>ServiceNow platform &amp; API</td><td>ServiceNow</td><td class="num">Separate</td></tr>
+          </tbody>
+        </table>
+        <p class="note"><b>Budget tip:</b> size the Copilot Credit cost from agent-action and answer rates, then add the external system's own licensing separately &mdash; it is not part of your credit pool.</p>
+        <p class="src">Source: <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/servicenow-catalog-overview" target="_blank" rel="noopener">ServiceNow Catalog Copilot connector (Microsoft Learn)</a></p>
+      </div>
+    </div>
+
+    <p class="note" style="margin-top:4px"><b>Govern the spend:</b> pilot, cap, and charge usage-based experiences back to the right business unit on the <a class="ilink" href="#" data-gototab="monitor">Monitor &amp; Control</a> page.</p>
+  </section>
+
   <!-- ============ POWER AUTOMATE & FLOWS ============ -->
   <section class="tab" id="paflows" role="tabpanel" aria-labelledby="tab-paflows" tabindex="0">
     <div class="head">
@@ -920,6 +1025,36 @@ a.ref .url .ext{flex:none}
           <tr><td><b>Remaining tenant pool</b></td><td class="num"><b>14,500</b></td></tr>
         </tbody></table>
         <p class="src">Remaining = 25,000 - 10,000 - 500 (published example). B and C draw from the 14,500 pool; enforcement at 125% of it.</p>
+      </div>
+    </div>
+
+    <h3 class="sect"><span class="bar"></span>Pilot, cap &amp; charge back usage-based experiences</h3>
+    <div class="grid g2">
+      <div class="card">
+        <p class="ctitle">Run a pilot before broad rollout <i class="ic-i" data-tip="pilot|Start usage-based experiences (Cowork, AI teammates) with a small scoped group and tight caps, watch the alerts, then expand once spend is understood.">i</i></p>
+        <div class="flow" style="flex-direction:column">
+          <div class="step" data-tip="pil1|Scope the trial to a small group or single business unit so spend is observable and contained.">
+            <div class="n">1</div><h4>Scope to a small group</h4><p>Pilot with one team or business unit, not the whole tenant.</p></div>
+          <div class="step" data-tip="pil2|Set low monthly and per-user spending limits on the pilot's spending policy so nobody can drain the pool.">
+            <div class="n">2</div><h4>Set low monthly + per-user caps</h4><p>Constrain the pilot's spending policy with tight limits.</p></div>
+          <div class="step" data-tip="pil3|Watch the Cost Management alerts and consumption trend over the first weeks, then widen access once the cost-per-user pattern is clear.">
+            <div class="n">3</div><h4>Watch alerts, then expand</h4><p>Monitor consumption and alerts before scaling out.</p></div>
+        </div>
+        <p class="src">Source: <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/pay-as-you-go/overview" target="_blank" rel="noopener">Microsoft 365 Copilot pay-as-you-go overview (Microsoft Learn)</a></p>
+      </div>
+      <div class="card">
+        <p class="ctitle">Spending policies &amp; cost allocation <i class="ic-i" data-tip="policy|In the Microsoft 365 admin center Cost Management dashboard, spending policies control who can consume credits, set limits, and allocate spend to the right business unit.">i</i></p>
+        <table>
+          <thead><tr><th>Control</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr data-tip="pol1|Spending policies define who can consume Copilot Credits and how much, scoped by user or group."><td><b>Who can consume</b></td><td>Policy scoped per user or group</td></tr>
+            <tr data-tip="pol2|Set a monthly cap on a policy, and a per-user cap so one person can't spend the whole pool."><td><b>Monthly &amp; per-user limits</b></td><td>Caps that prevent overspending</td></tr>
+            <tr data-tip="pol3|Define alert thresholds and recipients; emails fire at the threshold and continue until the month resets or limits change."><td><b>Alerts &amp; hard caps</b></td><td>Thresholds + stakeholder notifications</td></tr>
+            <tr data-tip="pol4|Allocate and charge spend to the appropriate business unit so usage-based cost maps to the consuming team, not one central pool only."><td><b>Charge back to business units</b></td><td>Allocate spend to the consuming BU</td></tr>
+          </tbody>
+        </table>
+        <p class="note"><b>Governance best practice:</b> a per-business-unit spending policy makes chargeback clean &mdash; each unit's usage rolls up to its own limit and alerts.</p>
+        <p class="src">Sources: <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-overview-copilot-credits" target="_blank" rel="noopener">Usage-based billing &amp; cost management</a> &middot; <a class="ilink" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits" target="_blank" rel="noopener">Managing AI experiences enabled by usage-based billing</a></p>
       </div>
     </div>
   </section>
@@ -1163,6 +1298,30 @@ a.ref .url .ext{flex:none}
       <span class="url"><span class="ext">&#128279;</span>learn.microsoft.com/.../power-platform/admin/manage-copilot-studio-messages-capacity</span>
     </a>
 
+    <h3 class="sect"><span class="bar"></span>Usage-based billing &amp; extensibility</h3>
+    <div class="grid g2">
+      <a class="card ref" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-overview-copilot-credits" target="_blank" rel="noopener" data-tip="ref-ubo|How usage-based billing and the Cost Management dashboard work for Copilot Credits, including spending policies, limits, alerts, and chargeback.|Used on: Usage-Based Billing and Monitor and Control tabs">
+        <p class="rtitle"><span class="rn">5</span>Usage-based billing &amp; cost management for Copilot Credits (Microsoft Learn)</p>
+        <p>The usage-based billing model and Microsoft 365 admin center Cost Management dashboard: spending policies, monthly and per-user limits, alerts, hard caps, and cost allocation.</p>
+        <span class="url"><span class="ext">&#128279;</span>learn.microsoft.com/.../microsoft-365/copilot/usage-based-billing-overview-copilot-credits</span>
+      </a>
+      <a class="card ref" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-manage-copilot-credits" target="_blank" rel="noopener" data-tip="ref-ubm|Admin steps to enable usage-based billing and create the first spending policy, choosing a billing method and limits.|Used on: Usage-Based Billing tab">
+        <p class="rtitle"><span class="rn">6</span>Managing AI experiences enabled by usage-based billing (Microsoft Learn)</p>
+        <p>Step-by-step admin setup: enable usage-based billing under Copilot &gt; Cost Management, activate the default spending policy, choose a billing method, and set limits and alerts.</p>
+        <span class="url"><span class="ext">&#128279;</span>learn.microsoft.com/.../microsoft-365/copilot/usage-based-billing-manage-copilot-credits</span>
+      </a>
+      <a class="card ref" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/cowork/cowork-admin-governance" target="_blank" rel="noopener" data-tip="ref-cw|Cowork usage-based billing: the activities that consume credits and the admin governance controls.|Used on: Usage-Based Billing tab">
+        <p class="rtitle"><span class="rn">7</span>Manage Copilot Cowork for your organization (Microsoft Learn)</p>
+        <p>Cowork's usage-based billing model and the activities &mdash; model responses, tool and skill calls, image generation, browser tasks &mdash; that count toward consumption.</p>
+        <span class="url"><span class="ext">&#128279;</span>learn.microsoft.com/.../microsoft-365/copilot/cowork/cowork-admin-governance</span>
+      </a>
+      <a class="card ref" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/cost-considerations" target="_blank" rel="noopener" data-tip="ref-cc|How extensibility and connector usage is costed across M365 Copilot license tiers, including Copilot Chat grounding of shared tenant data.|Used on: Usage-Based Billing tab">
+        <p class="rtitle"><span class="rn">8</span>Licensing &amp; cost considerations for Copilot extensibility (Microsoft Learn)</p>
+        <p>How connectors, agents, and plugins are costed across M365 Copilot license tiers: no extra charge under a full license, usage-based for Copilot Chat grounding of shared tenant data.</p>
+        <span class="url"><span class="ext">&#128279;</span>learn.microsoft.com/.../microsoft-365/copilot/extensibility/cost-considerations</span>
+      </a>
+    </div>
+
     <p class="note" style="margin-top:18px"><b>Currency and disclaimer:</b> All pricing is USD and subject to change. The Copilot Credit Estimator and this guide provide informational estimates only, not a quote or contractual commitment. Confirm current pricing on the <a class="ilink" href="https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio#pricing" target="_blank" rel="noopener">Microsoft Copilot Studio pricing page</a> before any purchase.</p>
   </section>
 
@@ -1265,6 +1424,15 @@ navBtns.forEach((b,i)=>{
 if(navToggle)navToggle.addEventListener('click',()=>{navEl.classList.contains('open')?closeNav():openNav();});
 if(navBack)navBack.addEventListener('click',closeNav);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeNav();});
+
+// in-page cross-links to other tabs
+document.querySelectorAll('[data-gototab]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    e.preventDefault();
+    const btn=document.getElementById('tab-'+a.dataset.gototab);
+    if(btn)setTab(btn,true);
+  });
+});
 
 // ---------- fill tables ----------
 const p3rows=document.getElementById('p3rows');
